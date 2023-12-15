@@ -18,5 +18,9 @@ La règle `JUnitTestContainsTooManyAsserts` détecte le bad smell `Assertion rou
 La règle `UnnecessaryBooleanAssertion` correspond au pattern Useless Asserts. Cela détecte les assertions avec des booléens type `AssertTrue(true)`.
 Les règles type `UseAssertTrueInsteadOfAssertEquals` ou `UseAssertSameInsteadOfAssertTrue` détecte quand le mauvais type d'assertion est utilisé. Par exemple au lieu de `assertTrue(a != null)`, il vaut mieux faire `assertNotNull(a)`.
 
-Nous avons utilisé cette dernière règle sur le projet Apache Commons Collections. 
+Nous avons utilisé la règle `JUnit4SuitesShouldUseSuiteAnnotation` et nous avons obtenu un résultat dans le fichier GuavaTestlibTest ligne 56: 
+```java 
+public static Test suite() {...}
+```
+Avec JUnit3, créer une méthode de teste nommée suite() permettait d'indiquer une suite de tests. Cependant depuis JUnit4, il doit y avoir le décorateur : @RunWith(Suite.class) au dessus du test. 
 
