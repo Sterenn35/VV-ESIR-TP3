@@ -29,9 +29,5 @@ public class StringUtils {
         }
         return opening.isEmpty();
     }
-    public static void main(String[] args){
-        String str = "[(){blabla}]";
-        System.out.println(isBalanced(str));
-    }
 
 }
