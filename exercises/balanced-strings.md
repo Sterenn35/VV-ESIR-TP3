@@ -32,5 +32,5 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 3.  Nous n'avons pas de prédicats comprenant plus de deux opérateurs booléens.
 
-4. 
+4. Nous avons un score de mutation de 14/14, tous les mutants ont été tués.
 
