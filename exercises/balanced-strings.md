@@ -28,5 +28,6 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 1. Le domaine d'entrée prend toutes les chaînes de caractères. Nous avons cherché des caractéristiques pour séparer en block nos différentes valeurs d'entrées possibles. Tout d'abord, la chaîne de caractères peut être vide (la méthode renverra true), avoir un caractère (la méthode renverra false) ou avoir plusieurs caractères (le retour dépendra alors de la chaîne en elle-même). Ensuite, il peut y avoir aucun symbole dans la String, un type de symbole (que des parenthèses, que des acolades ou que des crochts), deux types ou les trois types. De plus, les symboles peuvent être équilibrés ou non. Pour finir, la châine de caractères peut présenter d'autres caractères que des symboles (par exemple des lettres) ou non. Nous avons donc le tableau suivant :
 ![Tableau représentant le space input partitioning](../images/Input_space_partitioning.png)
 
+2.  La couverture était de : 
 3. 
 
