@@ -30,6 +30,7 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 2.  Nous avons créé une entrée pour chaque combinaison d'un bloc de chaque caractéristique quand c'était possible. Par exemple le test avec la chaîne de caractère "{[)" décrit le bloc avec une string de longueur supérieure à 1, trois types de symboles, incorrectement déséquilibrés et sans présence d'autres caractères. Parfois, il n'était pas possible de cumuler des caractéristiques, comme le fait d'avoir une chaîne de caractères de taille 0, sans symbole ni autre caractère. En utilisant la fonctionnalité "Run with Coverage" de l'IDE IntelliJ, nous avons une couverture de 100% sur la méthode `isBalanced()`.
 
-3.  
+3.  Nous n'avons pas de prédicats comprenant plus de deux opérateurs booléens.
+
 4. 
 
