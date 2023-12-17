@@ -31,5 +31,11 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 | Aligné à gauche  |   ce texte        |  Aligné à droite |
 | Aligné à gauche  | est             |   Aligné à droite |
 | Aligné à gauche  | centré          |    Aligné à droite |
+
+| Aligné à gauche  | Centré          | Aligné à droite |
+| :--------------- |:---------------:| -----:|
+| Aligné à gauche  |   ce texte        |  Aligné à droite |
+| Aligné à gauche  | est             |   Aligné à droite |
+| Aligné à gauche  | centré          |    Aligné à droite |
 2. 
 
