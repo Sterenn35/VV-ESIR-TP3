@@ -53,7 +53,7 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 1. Nous avons considéré les formats de date du calendrier Grégorien : On commence à compter après la naissance de Jésus-Crist, il n'existe pas d'année 0, la première année est l'an 1 et l'année d'avant est l'année -1 ou 1 an avant Jésus-Crist.
-Après avoir implémenté toutes les méthodes, nous avons cherché des caractéristiques et des blocs pour chaque méthode. Les méthodes `isValidDate`, `nextDate`, `previousDate` ont le même partionnement, représenté ci-dessous : // A REFAIRE
+Après avoir implémenté toutes les méthodes, nous avons cherché des caractéristiques et des blocs pour chaque méthode.
 ![Input Space Partitioning](../images/Input_space_partitioning_date.png)
 Bien que les méthodes `nextDate` et `previousDate` ne prennent pas de paramètres d'entrées, elles agissent sur un objet Date, composé d'un jour, d'un mois et d'une année.
 Pour la méthode `isLeapYear`, étant donné qu'une année bissextile peut être divisible par 4 mais pas par 100 sauf si l'année est aussi divisible par 400, voici le partitionnement :
