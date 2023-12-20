@@ -59,7 +59,7 @@ Bien que les méthodes `nextDate` et `previousDate` ne prennent pas de paramètr
 Pour la méthode `isLeapYear`, étant donné qu'une année bissextile peut être divisible par 4 mais pas par 100 sauf si l'année est aussi divisible par 400, voici le partitionnement :
 <p align="center">
 <img src="../images/Input_space_partitioning_year.png"/><br>
-<i>Partitionnement pour la méthode isValidDate</i>
+Partitionnement pour la méthode <i>isValidDate</i>
 </p>
    
 3. Nos tests satisfont le `Base Choice Coverage`. En effet, nous pouvons prendre l'exemple des tests pour la méthode `isValidDate` : Nous sommes partis de l'exemple {day: 1, month: 1, year: 0} pour tester quand l'année est mauvaise, puis nous avons modifié le mois en le mettant à -1 pour le cas où le mois et l'année ne sont pas valides. Ensuite, nous avons modifié la valeur du jour. Nous avons donc petit à petit modifier chaque paramètre en gardant l'année à 0. De cette façon, nous avons pu tester efficacement la condition `if( badYear || badMonth || badYear)`.
