@@ -58,5 +58,8 @@ Après avoir implémenté toutes les méthodes, nous avons cherché des caracté
 Bien que les méthodes `nextDate` et `previousDate` ne prennent pas de paramètres d'entrées, elles agissent sur un objet Date, composé d'un jour, d'un mois et d'une année.
 Pour la méthode `isLeapYear`, étant donné qu'une année bissextile peut être divisible par 4 mais pas par 100 sauf si l'année est aussi divisible par 400, voici le partitionnement :
 ![Input Space Partitioning](../images/Input_space_partitioning_year.png)
-3. 
-4. 
+
+3. Nos tests satisfont le `Base Choice Coverage`. En effet, nous pouvons prendre l'exemple des tests pour la méthode `isValidDate` : Nous sommes partis de l'exemple {day: 1, month: 1, year: 0} pour tester quand l'année est mauvaise, puis nous avons modifié le mois en le mettant à -1 pour le cas où le mois et l'année ne sont pas valides. Ensuite, nous avons modifié la valeur du jour. Nous avons donc petit à petit modifier chaque paramètre en gardant l'année à 0. De cette façon, nous avons pu tester efficacement la condition `if( badYear || badMonth || badYear)`.
+Nous avons réalisé la même technique pour la méthode `isLeapYear`, nous prenions une année divisible par 4 mais ni par 100, ni par 400, ensuite nous avons pris une année divisible par 4 et 100 mais pas par 400 etc.
+
+4. Après avoir lancé PIT, nous avons un score de mutation de 88% avec 82 mutants tués sur 93. Ce score peut être améliorable. Pour cela, nous regardons les mutants qui ont survécu pour essayer de trouver les cas de tests à rajouter. Nous avons vu par exemple que nous ne testions pas pour la méthode `nextDate` le cas où la date est la fin d'un mois de trente jours. En rajoutant ce test, nous sommes passés à un score de mutation de 91% avec 85 mutants tués sur 93. Nous avons également vu que nous n'avions aucun test pour la méthode `compareTo` tel que le mois et l'année était identique. En le rajoutant, nous avons tués deux mutants de plus et somme passés à un score de 94%. En ajoutant de nouveaux tests, nous sommes arrivés à un score de 96%.
