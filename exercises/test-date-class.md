@@ -54,14 +54,24 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 ## Answer
 1. Nous avons considéré les formats de date du calendrier Grégorien : On commence à compter après la naissance de Jésus-Crist, il n'existe pas d'année 0, la première année est l'an 1 et l'année d'avant est l'année -1 ou 1 an avant Jésus-Crist.
 Après avoir implémenté toutes les méthodes, nous avons cherché des caractéristiques et des blocs pour chaque méthode.
-![Input Space Partitioning](../images/Input_space_partitioning_date.png)
-Bien que les méthodes `nextDate` et `previousDate` ne prennent pas de paramètres d'entrées, elles agissent sur un objet Date, composé d'un jour, d'un mois et d'une année.
+<p align="center">
+<img src="../images/Input_space_partitioning_date.png"/><br>
+Partitionnement pour la méthode <i>isValidDate</i>
+</p>
 Pour la méthode `isLeapYear`, étant donné qu'une année bissextile peut être divisible par 4 mais pas par 100 sauf si l'année est aussi divisible par 400, voici le partitionnement :
 <p align="center">
 <img src="../images/Input_space_partitioning_year.png"/><br>
-Partitionnement pour la méthode <i>isValidDate</i>
+Partitionnement pour la méthode <i>isLeapYear</i>
 </p>
-   
+Bien que les méthodes `nextDate` et `previousDate` ne prennent pas de paramètres d'entrées, elles agissent sur un objet Date, composé d'un jour, d'un mois et d'une année. Cependant, une date ne peut pas avoir de format invalide (car le constructeur renvoie une exception dans ce cas).
+<p align="center">
+<img src="../images/Input_space_partitioning_year.png"/><br>
+Partitionnement pour la méthode <i>nextDate</i>
+</p>
+<p align="center">
+<img src="../images/Input_space_partitioning_year.png"/><br>
+Partitionnement pour la méthode <i>previousDate</i>
+</p>
 3. Nos tests satisfont le `Base Choice Coverage`. En effet, nous pouvons prendre l'exemple des tests pour la méthode `isValidDate` : Nous sommes partis de l'exemple {day: 1, month: 1, year: 0} pour tester quand l'année est mauvaise, puis nous avons modifié le mois en le mettant à -1 pour le cas où le mois et l'année ne sont pas valides. Ensuite, nous avons modifié la valeur du jour. Nous avons donc petit à petit modifier chaque paramètre en gardant l'année à 0. De cette façon, nous avons pu tester efficacement la condition `if( badYear || badMonth || badYear)`.
 Nous avons réalisé la même technique pour la méthode `isLeapYear`, nous prenions une année divisible par 4 mais ni par 100, ni par 400, ensuite nous avons pris une année divisible par 4 et 100 mais pas par 400 etc.
 
