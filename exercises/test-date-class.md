@@ -52,4 +52,8 @@ Use the following steps to design the test suite:
 Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
+1. Nous avons considéré les formats de date du calendrier Grégorien : On commence à compter après la naissance de Jésus-Crist, il n'existe pas d'année 0, la première année est l'an 1 et l'année d'avant est l'année -1 ou 1 an avant Jésus-Crist.
+Après avoir implémenté toutes les méthodes, nous avons cherché des caractéristiques et des blocs pour chaque méthode. Voici les résultats obtenus :
 
+3. 
+4. 
