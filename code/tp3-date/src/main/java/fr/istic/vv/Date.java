@@ -2,7 +2,7 @@ package fr.istic.vv;
 
 class Date implements Comparable<Date> {
 
-    static class BadDateException extends Exception {
+    static class BadDateException extends RuntimeException {
         public BadDateException(String s) {
             super(s);
         }
@@ -10,7 +10,7 @@ class Date implements Comparable<Date> {
     private int day;
     private int month;
     private int year;
-    public Date(int day, int month, int year) throws Exception {
+    public Date(int day, int month, int year) {
         if (!isValidDate(day,month,year)) {
             throw new BadDateException("La date n'est pas valide");
         } else {
@@ -32,7 +32,7 @@ class Date implements Comparable<Date> {
         System.out.println("No exceed in days");
         boolean badFebruaryDate = month == 2 && ((isLeapYear(year) && day > 29) || (!isLeapYear(year) && day > 28));
         if (badFebruaryDate) {
-            System.out.println("Problem leap year");
+            System.out.println("Problem in february");
             return false;
         } else {
             System.out.println("No problem");
@@ -64,22 +64,80 @@ class Date implements Comparable<Date> {
                 nextDay = 1;
                 nextMonth = 1;
                 nextYear = year + 1;
-            } else {
+            } else { // Cas lambda
                 nextDay = day + 1;
                 nextMonth = month + 1;
                 nextYear = year + 1;
             }
         }
+        return new Date(nextDay, nextMonth, nextYear);
+    }
 
-        try {
-            return new Date(nextDay, nextMonth, nextYear);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
+    public Date previousDate() {
+        int previousDay;
+        int previousMonth;
+        int previousYear;
+        boolean previousMonth30 = month == 5 || month == 7 || month == 10 || month == 12; // months for which the previous month has 30 days
+        // Cas pour lequel repart au mois précédent
+        boolean leapYear = isLeapYear(year);
+        if (this.day == 1)  {
+            if (this.month == 1) { // On repart à l'année précédente
+                previousDay = 31;
+                previousMonth = 12;
+                previousYear = this.year - 1;
+            } else if(previousMonth30) {
+                previousDay = 30;
+                previousMonth = this.month - 1;
+                previousYear = this.year;
+            } else if(this.month == 3) {
+                previousMonth = 2;
+                previousYear = this.year;
+                if(leapYear) {
+                    previousDay = 29;
+                } else {
+                    previousDay = 28;
+                }
+            } else {
+                previousDay = 31;
+                previousMonth = this.month - 1;
+                previousYear = this.year;
+            }
+        } else { // cas lambda
+            previousDay = this.day - 1;
+            previousMonth = this.month;
+            previousYear = this.year;
+        }
+        return new Date(previousDay, previousMonth, previousYear);
+
+    }
+
+    public int compareTo(Date other) {
+        if (other != null) {
+            if (this.year < other.year) return 1; // this est antérieure à other
+            if (this.year > other.year) return -1; // this est postérieure à
+            // Si les années sont égales
+            if (this.month < other.month) return 1;
+            if (this.month > other.month) return -1;
+            // Si les mois sont égaux
+            if (this.day < other.day) return 1;
+            if (this.month > other.day) return -1;
+            return 0; // les dates sont identiques
+        } else { // Si other est null, on renvoie une exception
+            throw new NullPointerException("La date fournie est null");
         }
     }
 
-    public Date previousDate() { return null; }
+    public int getDay() {
+        return day;
+    }
 
-    public int compareTo(Date other) { return 0; }
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+
 }
