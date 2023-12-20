@@ -65,13 +65,19 @@ Partitionnement pour la méthode <i>isLeapYear</i>
 </p>
 Bien que les méthodes `nextDate` et `previousDate` ne prennent pas de paramètres d'entrées, elles agissent sur un objet Date, composé d'un jour, d'un mois et d'une année. Cependant, une date ne peut pas avoir de format invalide (car le constructeur renvoie une exception dans ce cas).
 <p align="center">
-<img src="../images/Input_space_partitioning_year.png"/><br>
+<img src="../images/Input_space_partitioning_nextDate.png"/><br>
 Partitionnement pour la méthode <i>nextDate</i>
 </p>
 <p align="center">
-<img src="../images/Input_space_partitioning_year.png"/><br>
+<img src="../images/Input_space_partitioning_previousDate.png"/><br>
 Partitionnement pour la méthode <i>previousDate</i>
 </p>
+</p>
+<p align="center">
+<img src="../images/Input_space_partitioning_compareTo.png"/><br>
+Partitionnement pour la méthode <i>compareTo</i>
+</p>
+Nous remarquons que toutes les méthodes excexpté `isLeapYear` partagent les mêmes caractéristiques, avec des blocs plus ou moins différents. En effet, toutes ces méthodes utilisent des objets Date et manipulent les mêmes attributs. 
 3. Nos tests satisfont le `Base Choice Coverage`. En effet, nous pouvons prendre l'exemple des tests pour la méthode `isValidDate` : Nous sommes partis de l'exemple {day: 1, month: 1, year: 0} pour tester quand l'année est mauvaise, puis nous avons modifié le mois en le mettant à -1 pour le cas où le mois et l'année ne sont pas valides. Ensuite, nous avons modifié la valeur du jour. Nous avons donc petit à petit modifier chaque paramètre en gardant l'année à 0. De cette façon, nous avons pu tester efficacement la condition `if( badYear || badMonth || badYear)`.
 Nous avons réalisé la même technique pour la méthode `isLeapYear`, nous prenions une année divisible par 4 mais ni par 100, ni par 400, ensuite nous avons pris une année divisible par 4 et 100 mais pas par 400 etc.
 
