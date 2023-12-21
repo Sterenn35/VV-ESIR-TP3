@@ -14,7 +14,7 @@ Answer the following questions:
 
 1. L'assertion échoue car nous comparons des flottants. Certains nombres ne peuvent pas être stocké parfaitement car leur représentation est infinie. Il faut donc éviter d'utiliser des comparaisons d'égalité avec les nombres décimaux et manipuler des inégalités à la place. Pour le assertEquals, il est possible de spécifier un delta pour lequel l'égalité des deux nombres sera validée. 
 
-2. AssertEquals va vérifier que deux éléments sont *égaux* (si ce sont deux types primitifs, cela utilise l'opérateur d'égalité). AssertSame va en revanche vérifier si deux éléments ont la même *référence*. Dans le cas de types primitifs, assertEquals et assertSame vont renvoyer le même résultat. En effet si nous avons :
+2. AssertEquals va vérifier que deux éléments sont *égaux* (utilise `equals`, si ce sont deux types primitifs, cela utilise l'opérateur d'égalité). AssertSame va en revanche vérifier si deux éléments ont la même *référence*. Dans le cas de types primitifs, assertEquals et assertSame vont renvoyer le même résultat. En effet si nous avons :
 ```java
 int a = 2;
 int b = 2;
