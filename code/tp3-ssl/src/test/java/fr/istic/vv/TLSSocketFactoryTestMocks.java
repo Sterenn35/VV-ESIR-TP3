@@ -9,19 +9,20 @@ import java.util.List;
 
 import static org.mockito.Mockito.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class TLSSocketFactoryTestMocks {
 
-    public static SSLSocket nullSSLSocketMock() {
+    @Test
+    public void prepareSocket_nullSSLSocketMock() {
+        TLSSocketFactory f = new TLSSocketFactory();
         SSLSocket sslSocketMock = mock(SSLSocket.class);
 
-        // Configuration du comportement du mock
+        // Configuration du comportement du mock avec les méthodes utilisées par prepareSocket
         when(sslSocketMock.getSupportedProtocols()).thenReturn(null);
         when(sslSocketMock.getEnabledProtocols()).thenReturn(null);
-        //when(sslSocketMock.setEnabledProtocols()).thenReturn(fail());//don't know how to mock array of strings
-
-        return sslSocketMock;
+        // Aucun comportement pour setEnabledProtocols car on ne l'appelle pas quand enabled et supported sont null
+        f.prepareSocket(sslSocketMock);
+        // On vérifie que la méthode setEnabledProtocols n'a pas été appelée
+        verify(sslSocketMock, times(0)).setEnabledProtocols(any());
     }
 
     public static SSLSocket typicalSSLSocketMock() {
