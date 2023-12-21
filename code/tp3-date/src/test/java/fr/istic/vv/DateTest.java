@@ -8,6 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DateTest {
 
+    /**** Constructeur pour une mauvaise date ****/
+    @Test
+    void dateConstructor() throws Exception {
+        assertThrows(Date.BadDateException.class,
+                () -> new Date(-1,3,5));
+    }
+
     /**** Méthode isLeapYear ****/
 
     @Test
