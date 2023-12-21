@@ -23,5 +23,5 @@ a et b ont la même valeur (assertEquals passera) mais également la même réf�
 
 3. Le mot clé fail pourrait aussi servir comme code par défaut dans un cas de test dont on n'aurait pas encore développé le code ou alors pour un cas de test qui teste du code qui n'a pas encore été développé. Ainsi le cas de test renverrait toujours failed en attendant de développer le reste.
 
-4. assertThrows permet une meilleure lisibilité, on voit directement que le test renvoie une exception. 
+4. assertThrows permet une meilleure lisibilité, on voit directement que le test renvoie une exception. On peut également utiliser des fonctions lambda ce qui allège et rend plus modulaires les cas de tests. 
 
